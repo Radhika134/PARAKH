@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analyze Product - PARAKH Product Intelligence</title>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+              950: '#022c22'
+            },
+            surface: {
+              light: '#fafaf7',
+              card: '#ffffff'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+<!-- Custom Scan Reticle Animation & Scanner Styles -->
+<style data-purpose="custom-animations">
+    @keyframes scan-pulse {
+      0%, 100% {
+        opacity: 0.35;
+        transform: scale(0.995);
+      }
+      50% {
+        opacity: 0.85;
+        transform: scale(1.005);
+      }
+    }
+    .scanner-reticle-anim {
+      animation: scan-pulse 2.4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#fafaf7] text-slate-800 font-sans min-h-screen flex flex-col justify-between antialiased selection:bg-emerald-100 selection:text-emerald-900 relative overflow-x-hidden">
+<!-- Soft mint ambient glow in background -->
+<div aria-hidden="true" class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[450px] bg-gradient-to-b from-emerald-100/50 via-teal-50/20 to-transparent blur-3xl pointer-events-none -z-10"></div>
+<!-- BEGIN: MainHeader -->
+<header class="w-full bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo & Title -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-9 h-9 rounded-lg bg-[#064e3b] flex items-center justify-center text-white font-bold text-lg shadow-sm transition-transform group-hover:scale-95">
+          P
+        </div>
+<div class="flex flex-col leading-tight">
+<span class="font-extrabold text-slate-900 tracking-tight text-base">PARAKH</span>
+<span class="text-[9px] font-semibold text-slate-400 tracking-wider">PRODUCT INTELLIGENCE</span>
+</div>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-9 text-sm font-medium">
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Home</a>
+<a class="text-[#064e3b] font-semibold flex items-center gap-1.5" href="#">
+<span>Analyze Product</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#064e3b]"></span>
+</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Benefits</a>
+<a class="text-slate-600 hover:text-slate-900 transition-colors" href="#">Live Preview</a>
+</nav>
+<!-- Header CTA Button -->
+<div class="flex items-center">
+<a class="inline-flex items-center gap-2 bg-[#064e3b] hover:bg-[#043e2f] text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all shadow-sm hover:shadow" href="#">
+<span>Analyze Product</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-10 md:py-14 w-full flex flex-col items-center">
+<!-- Page Header Section -->
+<div class="text-center max-w-2xl mx-auto mb-10">
+<!-- AI Chip Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-semibold tracking-wide mb-4">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>AI-POWERED PRODUCT INTELLIGENCE</span>
+</div>
+<!-- Primary Heading -->
+<h1 class="text-3xl sm:text-4xl md:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+        Analyze a Product
+      </h1>
+<!-- Subtitle Description -->
+<p class="text-slate-600 text-base md:text-lg leading-relaxed">
+        Upload a product label and let PARAKH turn it into clear, evidence-backed insights.
+      </p>
+</div>
+<!-- BEGIN: AnalysisInputCard -->
+<section class="w-full max-w-4xl bg-white rounded-3xl p-6 sm:p-10 shadow-xl shadow-slate-200/50 border border-slate-100" data-purpose="product-input-card">
+<!-- Segmented Tab Bar Navigation -->
+<div aria-label="Input Method Tabs" class="flex p-1.5 bg-slate-100/90 rounded-2xl max-w-xl mx-auto mb-8 border border-slate-200/70" role="tablist">
+<!-- Tab 1: Upload Label Photo (Default Active) -->
+<button aria-controls="panel-upload" aria-selected="true" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 bg-white text-emerald-900 shadow-sm" id="tab-btn-upload" role="tab" type="button">
+<svg class="w-4 h-4 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Upload Label Photo</span>
+</button>
+<!-- Tab 2: Scan with Camera -->
+<button aria-controls="panel-camera" aria-selected="false" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900" id="tab-btn-camera" role="tab" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Scan with Camera</span>
+</button>
+<!-- Tab 3: Search Product / Barcode -->
+<button aria-controls="panel-search" aria-selected="false" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900" id="tab-btn-search" role="tab" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h3v3h-3v-3zM16.5 19.5h3v-3h-3v3zM19.5 13.5h.75v.75h-.75v-.75zM19.5 16.5h.75v.75h-.75v-.75z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="hidden sm:inline">Search Barcode</span>
+<span class="sm:hidden">Search</span>
+</button>
+</div>
+<!-- TAB PANEL 1: UPLOAD LABEL PHOTO (DEFAULT VISIBLE) -->
+<div aria-labelledby="tab-btn-upload" class="block transition-all" id="panel-upload" role="tabpanel">
+<!-- Dashed Dropzone -->
+<div class="group relative rounded-2xl border-2 border-dashed border-emerald-300/80 bg-emerald-50/20 hover:bg-emerald-50/40 p-8 sm:p-12 text-center transition-all cursor-pointer flex flex-col items-center justify-center">
+<input accept="image/jpeg,image/png,image/webp" aria-label="Upload product label image file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" type="file"/>
+<!-- Green Circular Badge -->
+<div class="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 mb-4 shadow-sm group-hover:scale-105 transition-transform">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<h3 class="text-xl font-bold text-slate-800 mb-1">Drop your product label here</h3>
+<p class="text-sm text-slate-500 mb-5 max-w-sm">Upload a clear photo of the product label or ingredient list</p>
+<button class="bg-white border border-emerald-200 text-emerald-800 rounded-full px-6 py-2.5 text-sm font-semibold shadow-sm hover:bg-emerald-50 hover:border-emerald-300 transition-all pointer-events-none" type="button">
+            Browse Files
+          </button>
+<span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold mt-4">JPG • PNG • WEBP</span>
+</div>
+<!-- Alternate Input Divider -->
+<div class="mt-8 pt-6 border-t border-slate-100">
+<div class="relative flex justify-center text-xs uppercase mb-4">
+<span class="bg-white px-4 text-slate-400 font-medium tracking-wide">or paste ingredient text</span>
+</div>
+<!-- Expandable Raw Text Area Container -->
+<div class="relative">
+<textarea class="w-full text-sm rounded-xl border border-slate-200 p-3.5 pr-12 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all placeholder:text-slate-400 resize-y" placeholder="Paste raw ingredients text here (e.g., Aqua, Glycerin, Niacinamide, Centella Asiatica, Phenoxyethanol...)" rows="3"></textarea>
+<button class="absolute right-3 top-3 p-1.5 text-slate-400 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors" title="Paste from clipboard" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<!-- TAB PANEL 2: SCAN WITH CAMERA -->
+<div aria-labelledby="tab-btn-camera" class="hidden transition-all" id="panel-camera" role="tabpanel">
+<!-- Viewfinder Box -->
+<div class="relative w-full aspect-video rounded-2xl bg-slate-950 overflow-hidden flex flex-col items-center justify-center p-6 border border-slate-800 shadow-inner">
+<!-- Outer Camera Reticle Corners -->
+<div class="absolute inset-4 pointer-events-none">
+<span class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-emerald-400"></span>
+<span class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-emerald-400"></span>
+<span class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-emerald-400"></span>
+<span class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-emerald-400"></span>
+</div>
+<!-- Central Target Detection Box with Glow -->
+<div class="relative w-64 sm:w-80 h-36 sm:h-44 rounded-xl border border-emerald-400/70 scanner-reticle-anim bg-emerald-500/5 flex flex-col items-center justify-center p-4">
+<div class="px-3 py-1 rounded bg-black/60 border border-emerald-500/30 text-[11px] font-mono tracking-wider text-emerald-300 uppercase">
+              [ ALIGN LABEL INSIDE FRAME ]
+            </div>
+</div>
+<!-- Instruction Text -->
+<p class="text-xs sm:text-sm text-slate-300 mt-4 text-center font-medium drop-shadow">
+            Position product label clearly under good lighting
+          </p>
+<!-- Camera Trigger Button -->
+<div class="mt-4 flex items-center justify-center">
+<button aria-label="Capture Photo" class="w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-950/60 ring-4 ring-white/20 transition-all transform active:scale-95" type="button">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="text-center mt-3">
+<button class="text-xs text-slate-500 hover:text-emerald-700 underline font-medium" id="switch-to-upload-btn" type="button">
+            Upload from device instead
+          </button>
+</div>
+</div>
+<!-- TAB PANEL 3: SEARCH PRODUCT / BARCODE -->
+<div aria-labelledby="tab-btn-search" class="hidden transition-all" id="panel-search" role="tabpanel">
+<div class="p-4 sm:p-8 rounded-2xl bg-slate-50/70 border border-slate-200/80">
+<label class="block text-sm font-semibold text-slate-700 mb-2" for="product-search-input">
+            Search by Brand, Product Name, or Barcode Number
+          </label>
+<div class="relative flex flex-col sm:flex-row gap-3">
+<div class="relative flex-grow">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h3v3h-3v-3zM16.5 19.5h3v-3h-3v3zM19.5 13.5h.75v.75h-.75v-.75zM19.5 16.5h.75v.75h-.75v-.75z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="w-full pl-11 pr-4 py-3 bg-white text-slate-900 placeholder:text-slate-400 text-sm rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all" id="product-search-input" placeholder="e.g. 8901234567890 or CeraVe Foaming Cleanser" type="text"/>
+</div>
+<button class="bg-[#064e3b] hover:bg-[#043e2f] text-white px-6 py-3 rounded-xl font-medium text-sm transition-all whitespace-nowrap shadow-sm" type="button">
+              Find Product
+            </button>
+</div>
+<!-- Suggested / Popular Quick Tags -->
+<div class="mt-4 flex flex-wrap items-center gap-2 text-xs">
+<span class="text-slate-500 font-medium">Quick Suggestions:</span>
+<button class="quick-fill-tag bg-white hover:bg-emerald-50 text-slate-600 hover:text-emerald-800 border border-slate-200 rounded-full px-3 py-1 transition-colors" type="button">
+              CeraVe Hydrating Cleanser
+            </button>
+<button class="quick-fill-tag bg-white hover:bg-emerald-50 text-slate-600 hover:text-emerald-800 border border-slate-200 rounded-full px-3 py-1 transition-colors" type="button">
+              The Ordinary Niacinamide 10%
+            </button>
+<button class="quick-fill-tag bg-white hover:bg-emerald-50 text-slate-600 hover:text-emerald-800 border border-slate-200 rounded-full px-3 py-1 transition-colors" type="button">
+              Dot &amp; Key Vitamin C
+            </button>
+</div>
+</div>
+</div>
+<!-- Main Action CTA Button -->
+<div class="mt-10 pt-4 flex flex-col items-center justify-center">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#064e3b] hover:bg-[#043e2f] text-white font-semibold text-base py-4 px-12 rounded-full shadow-lg shadow-emerald-950/20 hover:shadow-xl transition-all transform active:scale-98" type="button">
+<span>Analyze Product</span>
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<p class="text-xs text-slate-400 text-center mt-3.5">
+          Your label will be analyzed using PARAKH's AI-powered product intelligence system.
+        </p>
+</div>
+</section>
+<!-- END: AnalysisInputCard -->
+<!-- BEGIN: ScanTipsSection -->
+<aside aria-label="Scanning tips" class="w-full max-w-2xl mx-auto mt-8 text-center">
+<h4 class="text-[11px] font-bold tracking-widest uppercase text-slate-400 mb-3">
+        Tips For A Better Scan
+      </h4>
+<div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+<span class="inline-flex items-center gap-1.5 bg-white/90 border border-slate-200/80 rounded-full px-4 py-1.5 text-xs text-slate-700 shadow-sm font-medium">
+<span class="text-emerald-600 font-bold">✓</span>
+<span>Keep the label clearly visible</span>
+</span>
+<span class="inline-flex items-center gap-1.5 bg-white/90 border border-slate-200/80 rounded-full px-4 py-1.5 text-xs text-slate-700 shadow-sm font-medium">
+<span class="text-emerald-600 font-bold">✓</span>
+<span>Avoid blur and glare</span>
+</span>
+<span class="inline-flex items-center gap-1.5 bg-white/90 border border-slate-200/80 rounded-full px-4 py-1.5 text-xs text-slate-700 shadow-sm font-medium">
+<span class="text-emerald-600 font-bold">✓</span>
+<span>Include the ingredient section</span>
+</span>
+</div>
+</aside>
+<!-- END: ScanTipsSection -->
+<!-- Product Categories Subtitle Line -->
+<p class="text-xs text-slate-400 text-center mt-6 mb-4">
+      Supports food, cosmetics, supplements and personal-care products.
+    </p>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="w-full bg-white border-t border-slate-200/70 mt-auto py-6">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+<!-- Footer Brand & Copyright -->
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded bg-[#064e3b] flex items-center justify-center text-white font-bold text-xs">
+          P
+        </div>
+<span class="font-extrabold text-slate-800 tracking-tight">PARAKH</span>
+<span>© 2025 PARAKH. AI-Powered Product Intelligence.</span>
+</div>
+<!-- Footer Links & Badge -->
+<div class="flex items-center flex-wrap gap-6 font-medium">
+<a class="hover:text-slate-800 transition-colors" href="#">How It Works</a>
+<a class="hover:text-slate-800 transition-colors" href="#">About</a>
+<a class="hover:text-slate-800 transition-colors" href="#">Privacy</a>
+<a class="hover:text-slate-800 transition-colors" href="#">Contact</a>
+<div class="flex items-center gap-1.5 text-emerald-800 font-semibold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/50">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span>Evidence-Based</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<!-- Tab Controller Script -->
+<script data-purpose="tab-switcher">
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabs = [
+        { btn: document.getElementById('tab-btn-upload'), panel: document.getElementById('panel-upload') },
+        { btn: document.getElementById('tab-btn-camera'), panel: document.getElementById('panel-camera') },
+        { btn: document.getElementById('tab-btn-search'), panel: document.getElementById('panel-search') }
+      ];
+
+      function setActiveTab(activeIndex) {
+        tabs.forEach((tab, index) => {
+          const isActive = index === activeIndex;
+          tab.btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          
+          if (isActive) {
+            tab.btn.className = 'flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 bg-white text-emerald-900 shadow-sm';
+            tab.panel.classList.remove('hidden');
+            tab.panel.classList.add('block');
+          } else {
+            tab.btn.className = 'flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900';
+            tab.panel.classList.add('hidden');
+            tab.panel.classList.remove('block');
+          }
+        });
+      }
+
+      tabs.forEach((tab, idx) => {
+        tab.btn.addEventListener('click', () => setActiveTab(idx));
+      });
+
+      // Quick switch link from camera back to upload
+      const switchBtn = document.getElementById('switch-to-upload-btn');
+      if (switchBtn) {
+        switchBtn.addEventListener('click', () => setActiveTab(0));
+      }
+
+      // Fill search input when clicking suggestions
+      const searchInput = document.getElementById('product-search-input');
+      const quickTags = document.querySelectorAll('.quick-fill-tag');
+      quickTags.forEach(tag => {
+        tag.addEventListener('click', function() {
+          if (searchInput) {
+            searchInput.value = this.innerText.trim();
+            searchInput.focus();
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

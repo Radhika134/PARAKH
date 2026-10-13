@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PARAKH - AI-Powered Product Intelligence</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans & Caveat for cursive accent -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            handwriting: ['"Caveat"', 'cursive'],
+          },
+          colors: {
+            brand: {
+              emerald: '#0B4D3C',
+              dark: '#063B2E',
+              mint: '#E8F7F0',
+              mintBorder: '#C1EBD6',
+              accent: '#10B981',
+              lightGreen: '#ECFDF5',
+              charcoal: '#0F172A',
+              muted: '#64748B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-layout">
+    /* Subtle background ambient glow matching the reference */
+    body {
+      background-color: #F8FAF8;
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(209, 250, 229, 0.45) 0px, transparent 50%),
+        radial-gradient(at 85% 20%, rgba(220, 252, 231, 0.4) 0px, transparent 45%),
+        radial-gradient(at 50% 65%, rgba(240, 253, 244, 0.6) 0px, transparent 60%);
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+<body class="text-brand-charcoal antialiased min-h-screen flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900">
+<!-- BEGIN: MainHeader -->
+<header class="w-full max-w-[1280px] mx-auto px-6 py-6 flex items-center justify-between z-20">
+<!-- Brand Logo -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-brand-emerald rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-sm">
+        P
+      </div>
+<div class="flex flex-col">
+<span class="font-extrabold text-xl tracking-tight text-brand-charcoal leading-none">PARAKH</span>
+<span class="text-[9px] font-bold tracking-widest text-brand-emerald uppercase mt-0.5">Product Intelligence</span>
+</div>
+</div>
+<!-- Center Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
+<a class="hover:text-brand-emerald transition-colors" href="#home">Home</a>
+<a class="hover:text-brand-emerald transition-colors" href="#analyze">Analyze Product</a>
+<a class="hover:text-brand-emerald transition-colors" href="#benefits">Benefits</a>
+<a class="hover:text-brand-emerald transition-colors" href="#preview">Live Preview</a>
+</nav>
+<!-- Top Right Action Button -->
+<div>
+<a class="inline-flex items-center gap-2 bg-brand-emerald hover:bg-brand-dark text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-wide shadow-sm hover:shadow transition-all duration-200" href="#analyze">
+        Analyze Product
+        <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-6 pt-4 pb-20 space-y-24">
+<!-- BEGIN: HeroSection -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-6 lg:pt-10" id="home">
+<!-- Left Column: Copy & CTAs -->
+<div class="lg:col-span-6 space-y-7 pr-0 lg:pr-4">
+<!-- AI Intelligence Pill Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/70 border border-emerald-200/60 text-xs font-semibold text-brand-emerald">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          AI-Powered Product Intelligence
+        </div>
+<!-- Hero Headline -->
+<h1 class="text-5xl lg:text-[62px] font-extrabold tracking-tight text-gray-900 leading-[1.08]">
+          Scan. Understand.<br/>Decide.
+        </h1>
+<!-- Subtitle description -->
+<p class="text-base lg:text-lg text-gray-600 font-normal leading-relaxed max-w-[480px]">
+          Understand product labels, ingredients and potential concerns with AI-powered, evidence-backed insights.
+        </p>
+<!-- CTA Buttons Row -->
+<div class="flex flex-wrap items-center gap-4 pt-1">
+<a class="inline-flex items-center gap-2 bg-brand-emerald hover:bg-brand-dark text-white px-7 py-3 rounded-full text-sm font-bold shadow-md shadow-emerald-900/10 hover:shadow-lg transition-all" href="#analyze">
+            Analyze Product
+            <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<a class="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-gray-800 border border-gray-300/80 px-7 py-3 rounded-full text-sm font-bold shadow-xs hover:border-gray-400 transition-all" href="#how-it-works">
+            How It Works
+          </a>
+</div>
+<!-- Trust Signals Row -->
+<div class="pt-6 grid grid-cols-3 gap-2 border-t border-gray-200/50 max-w-[500px]">
+<!-- Feature 1 -->
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-emerald shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-xs font-medium text-gray-700 leading-tight">Safer Choices<br/>Everyday</span>
+</div>
+<!-- Feature 2 -->
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-emerald shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-xs font-medium text-gray-700 leading-tight">Trusted<br/>Information</span>
+</div>
+<!-- Feature 3 -->
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-full bg-emerald-50 flex items-center justify-center text-brand-emerald shrink-0">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-xs font-medium text-gray-700 leading-tight">Healthier<br/>You</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Product Scan Card with Overlays -->
+<div class="lg:col-span-6 relative flex justify-center items-center py-6">
+<!-- Main Product Image Frame with Soft Shadow & Border -->
+<div class="relative w-[360px] sm:w-[420px] aspect-[4/4.3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-stone-100">
+<img alt="Verdant Botanicals Radiance Serum skincare dropper bottle" class="w-full h-full object-cover object-center scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5hzXuOeqMucdJWfCSXRIihhDtX_jG2CbRMhkIWFVMsMHuMQIpbZhcdO9ccBMxB35K3Nu6YR7U0tW4LeL_YgvwZoGT_jUxBwZg0Pc2RHsmKNj87r-X17WwuyCpwZ2hud7ihioAzse48J8fyk-sf3jbb6AdGptpDoRAZRDKCjMMvUWWfS3lVljy_mW53Z90JFM_qndoEubWtP3IcbxTMM_FHMpCe1a3yN1tMBzsfXbfRvPmjQVt2HfGwA"/>
+<!-- Scanning Overlay / Reticle Frame -->
+<div class="absolute inset-0 p-8 flex flex-col justify-center items-center pointer-events-none">
+<!-- Reticle Top-Left Bracket -->
+<div class="absolute top-6 left-6 w-10 h-10 border-t-4 border-l-4 border-emerald-500 rounded-tl-sm"></div>
+<!-- Reticle Bottom-Right Bracket -->
+<div class="absolute bottom-6 right-6 w-10 h-10 border-b-4 border-r-4 border-emerald-500 rounded-br-sm"></div>
+<!-- Central Scanning Bounding Box for Label -->
+<div class="relative w-48 h-56 border-2 border-dashed border-emerald-400/90 rounded-xl flex flex-col items-center justify-start pt-2 bg-emerald-500/5">
+<!-- Label Detected Chip -->
+<div class="bg-brand-dark/95 backdrop-blur-md px-3 py-1 rounded-full text-[11px] tracking-wide text-white font-semibold shadow">
+                LABEL DETECTED
+              </div>
+</div>
+</div>
+</div>
+<!-- Floating Badge Top Right: Ingredients Detected -->
+<div class="absolute -top-3 right-0 sm:right-4 bg-white/95 backdrop-blur-sm border border-emerald-50 rounded-2xl p-3.5 shadow-xl flex items-center gap-3.5 z-10 transition-transform hover:-translate-y-1">
+<div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white shadow-xs">
+<svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="leading-tight">
+<p class="text-xs font-bold text-gray-900">Ingredients Detected</p>
+<p class="text-[11px] text-gray-500 font-medium">15 ingredients</p>
+</div>
+</div>
+<!-- Floating Badge Bottom Left: 94% Confidence -->
+<div class="absolute -bottom-4 left-0 sm:left-4 bg-white/95 backdrop-blur-sm border border-emerald-50 rounded-2xl p-3.5 shadow-xl flex items-center gap-3.5 z-10 transition-transform hover:-translate-y-1">
+<div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white shadow-xs">
+<svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="leading-tight">
+<p class="text-xs font-bold text-gray-900">94% Confidence</p>
+<p class="text-[11px] text-gray-500 font-medium">Evidence Verified</p>
+</div>
+</div>
+<!-- Handwritten annotation doodle -->
+<div class="hidden md:block absolute -right-16 top-16 pointer-events-none text-emerald-800 select-none">
+<div class="font-handwriting text-2xl -rotate-6 text-gray-500 leading-tight flex flex-col items-start">
+<span>Smarter</span>
+<span class="pl-2">Choices</span>
+<span class="pl-4">Brighter</span>
+<span class="pl-6">Tomorrows</span>
+<svg class="w-10 h-10 mt-1 ml-4 text-emerald-600/70" fill="none" stroke="currentColor" viewbox="0 0 40 40">
+<path d="M5,5 C12,18 20,22 30,24 M30,24 L22,23 M30,24 L26,17" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: AnalyzeProductSection -->
+<section class="w-full" id="analyze">
+<div class="bg-white rounded-3xl p-6 lg:p-10 shadow-xl shadow-slate-200/50 border border-gray-100">
+<!-- Section Title & Subtitle -->
+<div class="text-center space-y-2 mb-8">
+<h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Analyze a Product</h2>
+<p class="text-sm font-normal text-gray-500">Upload a label, paste ingredients, or search by barcode.</p>
+</div>
+<!-- Pill Segmented Control -->
+<div class="flex justify-center mb-8">
+<div class="inline-flex bg-gray-100/80 p-1.5 rounded-full text-xs font-semibold text-gray-600 border border-gray-200/50">
+<!-- Active Tab -->
+<button class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-100 text-brand-emerald font-bold shadow-xs">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Upload Label Photo
+            </button>
+<!-- Inactive Tab 1 -->
+<button class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-gray-600 hover:text-gray-900 transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Paste Ingredient Text
+            </button>
+<!-- Inactive Tab 2 -->
+<button class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-gray-600 hover:text-gray-900 transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-16v16M4 4v16m4-16v16m8-16v16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Search Barcode / Product
+            </button>
+</div>
+</div>
+<!-- Upload Dropzone Area -->
+<div class="border-2 border-dashed border-emerald-200/90 rounded-2xl p-10 lg:p-12 flex flex-col items-center justify-center text-center bg-emerald-50/20 hover:bg-emerald-50/40 transition-colors cursor-pointer group">
+<!-- Upload Icon in Mint Circle -->
+<div class="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center text-brand-emerald mb-4 group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h3 class="text-base font-bold text-gray-900 mb-1">Drop product label photo here</h3>
+<p class="text-xs text-gray-500 font-medium mb-6">Supports JPG, PNG, or mobile camera captures (curved surface dewarping enabled)</p>
+<!-- Upload CTA Button -->
+<button class="inline-flex items-center gap-2 bg-brand-emerald hover:bg-brand-dark text-white text-xs font-bold px-6 py-2.5 rounded-full shadow transition-all">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+            Analyze Product
+            <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Footnote / Supported Categories -->
+<p class="text-center text-[11px] text-gray-400 font-medium mt-5">
+          Supports food, cosmetics, supplements and personal-care products.
+        </p>
+</div>
+</section>
+<!-- END: AnalyzeProductSection -->
+<!-- BEGIN: WhyParakhSection -->
+<section class="space-y-10" id="benefits">
+<div class="text-center space-y-2">
+<h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Why PARAKH</h2>
+<p class="text-sm text-gray-500 font-normal">Clarity and confidence in every consumer product decision.</p>
+</div>
+<!-- 3-Column Feature Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Feature 1: Ingredient Intelligence -->
+<div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow">
+<div class="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center text-brand-emerald shrink-0">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-gray-900 text-sm mb-1">Ingredient Intelligence</h3>
+<p class="text-xs text-gray-500 leading-relaxed">Understand complex ingredients in simple language.</p>
+</div>
+</div>
+<!-- Feature 2: Evidence-backed -->
+<div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow">
+<div class="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center text-brand-emerald shrink-0">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-gray-900 text-sm mb-1">Evidence-backed</h3>
+<p class="text-xs text-gray-500 leading-relaxed">Get insights supported by trusted sources.</p>
+</div>
+</div>
+<!-- Feature 3: Personalized -->
+<div class="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow">
+<div class="w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center text-brand-emerald shrink-0">
+<svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-gray-900 text-sm mb-1">Personalized</h3>
+<p class="text-xs text-gray-500 leading-relaxed">Check products against your preferences.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: WhyParakhSection -->
+<!-- BEGIN: LivePreviewSection -->
+<section class="space-y-6" id="preview">
+<div class="text-center space-y-2">
+<span class="inline-block uppercase tracking-wider text-[10px] font-bold px-3 py-1 bg-emerald-100/70 text-brand-emerald rounded-full">
+          Empirical Preview
+        </span>
+<h2 class="text-3xl font-extrabold text-gray-900 tracking-tight">Live Product Analysis Preview</h2>
+</div>
+<!-- Main Container Card -->
+<div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-slate-200/50">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left Column: Product Summary Card -->
+<div class="lg:col-span-5 flex items-center gap-6">
+<!-- Product Thumbnail Image -->
+<div class="w-28 h-28 rounded-2xl overflow-hidden bg-gray-50 border border-gray-200/80 shrink-0">
+<img alt="Verdant Botanicals Radiance Serum thumbnail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP8ehS-VO0i7KD5kqeOyovlqlnXYmmLEBKPoq7_k-S4ML8jcfZSKxOQO8lUOvtqFJypr5A-dv13sThqlpDKLpCWkdECpWr48OgDGNBEtaYPMAuCy9sFDWSHA0iMaIqjxBYauGxaCV7qyS-qMMmquojEmDWh_D2450r32PGPZSrWpqwBO7nQ_mpeOWAJcf1Dq-0Q9AYziV-ljNUuR86wxjZhSMxlYMSOOC6XsGxnLBlHpZHMib6QZvDkw"/>
+</div>
+<!-- Metadata & Confidence Pill -->
+<div class="space-y-2">
+<span class="inline-block px-3 py-0.5 rounded-full bg-emerald-100 text-brand-emerald text-[11px] font-bold">
+                Dermatological Skincare
+              </span>
+<h3 class="text-lg font-extrabold text-gray-900 leading-tight">Verdant Botanicals Serum</h3>
+<p class="text-xs text-gray-500 font-medium">Batch #VB-882</p>
+<div class="pt-1">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-brand-emerald text-xs font-bold border border-emerald-200/60">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  Confidence: 94%
+                </span>
+</div>
+</div>
+</div>
+<!-- Right Column: Ingredient Status Breakdown List -->
+<div class="lg:col-span-7 space-y-3">
+<!-- Ingredient 1: Verified Niacinamide -->
+<div class="flex items-center justify-between p-3.5 rounded-xl border border-gray-100 bg-white hover:border-gray-200 transition-colors">
+<div class="flex items-center gap-4">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-emerald-50 text-brand-emerald text-xs font-bold">
+                  ✓ Verified
+                </span>
+<div>
+<h4 class="text-xs font-bold text-gray-900">Niacinamide</h4>
+<p class="text-[11px] text-gray-500">Active ingredient</p>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">
+<svg class="w-3 h-3 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<!-- Ingredient 2: Attention Fragrance -->
+<div class="flex items-center justify-between p-3.5 rounded-xl border border-amber-100 bg-amber-50/20 hover:border-amber-200 transition-colors">
+<div class="flex items-center gap-4">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-amber-100 text-amber-800 text-xs font-bold">
+                  ⚠ Attention
+                </span>
+<div>
+<h4 class="text-xs font-bold text-gray-900">Fragrance</h4>
+<p class="text-[11px] text-amber-700 font-medium">Potential concern</p>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full bg-amber-500 text-white flex items-center justify-center shrink-0">
+<span class="text-xs font-black">!</span>
+</div>
+</div>
+<!-- Ingredient 3: Verified Centella Asiatica -->
+<div class="flex items-center justify-between p-3.5 rounded-xl border border-gray-100 bg-white hover:border-gray-200 transition-colors">
+<div class="flex items-center gap-4">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-emerald-50 text-brand-emerald text-xs font-bold">
+                  ✓ Verified
+                </span>
+<div>
+<h4 class="text-xs font-bold text-gray-900">Centella Asiatica</h4>
+<p class="text-[11px] text-gray-500">Botanical ingredient</p>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">
+<svg class="w-3 h-3 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: LivePreviewSection -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="w-full border-t border-gray-200 bg-white/70 backdrop-blur-sm py-6">
+<div class="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+<!-- Left: Logo & Copyright -->
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 bg-brand-emerald rounded-md flex items-center justify-center text-white font-bold text-xs">
+          P
+        </div>
+<span class="font-extrabold text-gray-900 tracking-tight">PARAKH</span>
+<span class="text-gray-400">© 2025 PARAKH. AI-Powered Product Intelligence.</span>
+</div>
+<!-- Center Links -->
+<nav class="flex items-center gap-6 font-medium text-gray-600">
+<a class="hover:text-brand-emerald transition-colors" href="#how-it-works">How It Works</a>
+<a class="hover:text-brand-emerald transition-colors" href="#about">About</a>
+<a class="hover:text-brand-emerald transition-colors" href="#privacy">Privacy</a>
+<a class="hover:text-brand-emerald transition-colors" href="#contact">Contact</a>
+</nav>
+<!-- Right: Evidence-Based Badge -->
+<div class="flex items-center gap-2 font-medium text-gray-700">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Evidence-Based</span>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>

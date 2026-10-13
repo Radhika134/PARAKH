@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PARAKH - AI Product Analysis</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            emerald: {
+              950: '#022c22',
+              900: '#064e3b',
+              850: '#053e30',
+              800: '#065f46',
+              700: '#047857',
+              600: '#059669',
+              500: '#10b981',
+              400: '#34d399',
+              200: '#a7f3d0',
+              100: '#d1fae5',
+              50: '#ecfdf5',
+            },
+            parakh: {
+              bg: '#fbfcf9',
+              card: '#ffffff',
+              dark: '#0e1f18',
+              muted: '#52665a',
+              border: '#e6ede8',
+              pill: '#ecfdf5',
+              green: '#064e3b',
+              accent: '#059669'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #fbfcf9;
+    }
+    
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.35);
+        opacity: 0.2;
+      }
+      100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes scan-line {
+      0% {
+        top: 0%;
+        opacity: 0;
+      }
+      15% {
+        opacity: 1;
+      }
+      85% {
+        opacity: 1;
+      }
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+
+    @keyframes shimmer-progress {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .animate-pulse-ring {
+      animation: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .animate-scan-line {
+      animation: scan-line 2.8s ease-in-out infinite;
+    }
+
+    .shimmer-bar {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+      animation: shimmer-progress 2s infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col text-slate-800 antialiased selection:bg-emerald-100 selection:text-emerald-900 bg-[#fbfcf9] relative overflow-x-hidden">
+<!-- Ambient background glow elements -->
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[480px] bg-gradient-to-b from-emerald-100/40 via-emerald-50/20 to-transparent blur-3xl pointer-events-none -z-10"></div>
+<div class="fixed top-64 right-10 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="fixed top-80 left-10 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Persistent Desktop Navbar -->
+<header class="w-full bg-white/80 backdrop-blur-md border-b border-emerald-900/5 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-10 h-10 rounded-xl bg-[#064e3b] flex items-center justify-center text-white font-bold text-lg shadow-sm group-hover:scale-105 transition-transform duration-200">
+          P
+        </div>
+<div class="flex flex-col">
+<span class="font-extrabold text-lg tracking-tight text-[#064e3b] leading-tight">PARAKH</span>
+<span class="text-[10px] font-semibold tracking-wider text-emerald-700 uppercase">Product Intelligence</span>
+</div>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+<a class="hover:text-[#064e3b] transition-colors py-2" href="#">Home</a>
+<a class="text-[#064e3b] font-semibold flex items-center gap-1.5 py-2 relative" href="#">
+          Analyze Product
+          <span class="w-1.5 h-1.5 rounded-full bg-[#064e3b]"></span>
+</a>
+<a class="hover:text-[#064e3b] transition-colors py-2" href="#">Benefits</a>
+<a class="hover:text-[#064e3b] transition-colors py-2" href="#">Live Preview</a>
+</nav>
+<!-- Right Header Action -->
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center gap-2 bg-[#064e3b] hover:bg-[#053e30] text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all shadow-sm shadow-emerald-950/10 hover:shadow-emerald-950/20 active:scale-[0.98]">
+<span>Analyze Product</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col items-center justify-center px-4 py-12 md:py-16">
+<div class="w-full max-w-3xl flex flex-col items-center">
+<!-- Step Indicator Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-semibold tracking-wide mb-5 shadow-xs">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-[#059669]"></span>
+</span>
+<span class="uppercase tracking-wider">STEP 3 OF 3: AI PROCESSING</span>
+</div>
+<!-- Main Headline & Subtitle -->
+<h1 class="text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#064e3b] tracking-tight text-center leading-tight mb-3">
+        Analyzing Your Product
+      </h1>
+<p class="text-slate-600 text-base md:text-lg text-center max-w-xl mb-10 leading-relaxed font-normal">
+        PARAKH is reading the label and checking trusted evidence to build your product report.
+      </p>
+<!-- Main Centered White Rounded Card -->
+<div class="w-full bg-white rounded-3xl border border-emerald-900/5 shadow-[0_12px_40px_-15px_rgba(6,78,59,0.08)] p-8 md:p-12 relative overflow-hidden">
+<!-- Top subtle animated accent line -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-emerald-50 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-emerald-400 via-emerald-600 to-emerald-500 w-3/5 rounded-r-full shimmer-bar"></div>
+</div>
+<!-- Inner Content Stack -->
+<div class="flex flex-col items-center">
+<!-- Product Image Thumbnail Preview with Radar Scanning Effect -->
+<div class="relative mb-8 group">
+<!-- Ambient Glow behind thumbnail -->
+<div class="absolute -inset-2 bg-gradient-to-tr from-emerald-100/60 to-emerald-200/40 rounded-2xl blur-md -z-10"></div>
+<div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 p-1.5 shadow-sm relative overflow-hidden flex items-center justify-center">
+<img alt="Uploaded Product Label" class="w-full h-full object-cover rounded-xl" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<!-- Subtle Scanning Overlay Beam -->
+<div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_8px_#34d399] animate-scan-line pointer-events-none"></div>
+<!-- Reticle Corner Markers -->
+<div class="absolute top-2 left-2 w-2 h-2 border-t-2 border-l-2 border-emerald-400 pointer-events-none"></div>
+<div class="absolute top-2 right-2 w-2 h-2 border-t-2 border-r-2 border-emerald-400 pointer-events-none"></div>
+<div class="absolute bottom-2 left-2 w-2 h-2 border-b-2 border-l-2 border-emerald-400 pointer-events-none"></div>
+<div class="absolute bottom-2 right-2 w-2 h-2 border-b-2 border-r-2 border-emerald-400 pointer-events-none"></div>
+</div>
+<!-- Floating Label Status Pill -->
+<div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 bg-white px-3 py-0.5 rounded-full border border-emerald-200/90 shadow-xs flex items-center gap-1.5 whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span class="text-[11px] font-semibold text-emerald-850 tracking-tight">Verdant Serum</span>
+</div>
+</div>
+<!-- Overall Progress Visual Bar -->
+<div class="w-full max-w-md mb-8">
+<div class="flex items-center justify-between text-xs font-semibold text-slate-500 mb-2 px-1">
+<span class="text-emerald-800 font-bold">Analysis Pipeline</span>
+<span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100 font-bold">Step 3 of 5</span>
+</div>
+<div class="w-full h-2 rounded-full bg-emerald-50/80 border border-emerald-100/80 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-full w-[60%] transition-all duration-700 ease-out shimmer-bar"></div>
+</div>
+</div>
+<!-- Progress Section / Steps List -->
+<div class="w-full max-w-md space-y-3 mb-8">
+<!-- Step 1: Completed -->
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-emerald-50/40 border border-emerald-100/70 transition-all">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
+<svg class="w-4 h-4 text-emerald-700" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<span class="text-sm font-semibold text-slate-700">Reading product label</span>
+</div>
+<span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-1 rounded-full">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+                Done
+              </span>
+</div>
+<!-- Step 2: Completed -->
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-emerald-50/40 border border-emerald-100/70 transition-all">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
+<svg class="w-4 h-4 text-emerald-700" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<span class="text-sm font-semibold text-slate-700">Extracting ingredients</span>
+</div>
+<span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-1 rounded-full">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+                Done
+              </span>
+</div>
+<!-- Step 3: ACTIVE with Subtle Animated Processing Indicator -->
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-emerald-50/90 border border-emerald-300 shadow-sm relative overflow-hidden ring-2 ring-emerald-500/15">
+<!-- subtle background pulse gradient -->
+<div class="absolute inset-0 bg-gradient-to-r from-emerald-100/50 via-white/40 to-transparent pointer-events-none"></div>
+<div class="flex items-center gap-3 relative z-10">
+<!-- Outer Animated Pulse Ring + Inner Solid Green Dot -->
+<div class="relative flex items-center justify-center w-7 h-7">
+<span class="absolute inset-0 rounded-full bg-emerald-400 opacity-60 animate-pulse-ring"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-[#064e3b] shadow-xs flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+</span>
+</div>
+<span class="text-sm font-bold text-[#064e3b]">Checking product information</span>
+</div>
+<!-- Animated Processing Status Pill -->
+<div class="relative z-10 flex items-center gap-1.5 text-xs font-bold text-[#064e3b] bg-white/90 border border-emerald-200 px-3 py-1 rounded-full shadow-xs">
+<svg class="w-3.5 h-3.5 text-emerald-600 animate-spin" fill="none" viewbox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+</svg>
+<span>Processing...</span>
+</div>
+</div>
+<!-- Step 4: Pending / Upcoming -->
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50/50 border border-slate-200/60 opacity-70">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full border-2 border-slate-300 flex items-center justify-center">
+<span class="w-2 h-2 rounded-full bg-slate-300"></span>
+</div>
+<span class="text-sm font-medium text-slate-500">Retrieving trusted evidence</span>
+</div>
+<span class="text-xs font-medium text-slate-400 px-2 py-0.5">Queued</span>
+</div>
+<!-- Step 5: Pending / Upcoming -->
+<div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50/50 border border-slate-200/60 opacity-60">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full border-2 border-slate-300 flex items-center justify-center">
+<span class="w-2 h-2 rounded-full bg-slate-300"></span>
+</div>
+<span class="text-sm font-medium text-slate-500">Preparing your report</span>
+</div>
+<span class="text-xs font-medium text-slate-400 px-2 py-0.5">Pending</span>
+</div>
+</div>
+<!-- "This may take a few moments" notice -->
+<div class="flex items-center gap-2 text-xs text-slate-500 mb-6 bg-slate-50 border border-slate-200/70 px-4 py-2 rounded-full">
+<svg class="w-4 h-4 text-emerald-600 animate-pulse" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>This may take a few moments.</span>
+</div>
+<!-- Divider -->
+<div class="w-full border-t border-emerald-900/5 my-2"></div>
+<!-- Bottom Card Assurance Note -->
+<div class="pt-5 flex items-center gap-2.5 text-center text-xs text-slate-500 max-w-md">
+<div class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<span class="leading-relaxed">
+              Your results will include ingredient insights, evidence sources and a confidence level.
+            </span>
+</div>
+</div>
+</div>
+<!-- Trust signals below main card (consistent with PARAKH brand) -->
+<div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 font-medium">
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>PubMed &amp; Peer-Reviewed Sources</span>
+</div>
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Encrypted OCR &amp; Private Data</span>
+</div>
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Curved Surface Dewarping Enabled</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Persistent Desktop Footer -->
+<footer class="w-full bg-white border-t border-emerald-900/5 py-8 mt-auto">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+<div class="flex items-center gap-2 font-medium">
+<div class="w-5 h-5 rounded bg-[#064e3b] text-white flex items-center justify-center font-bold text-[10px]">P</div>
+<span class="font-bold text-[#064e3b]">PARAKH</span>
+<span>© 2025 PARAKH. AI-Powered Product Intelligence.</span>
+</div>
+<div class="flex items-center gap-6 font-medium">
+<a class="hover:text-[#064e3b] transition-colors" href="#">How It Works</a>
+<a class="hover:text-[#064e3b] transition-colors" href="#">About</a>
+<a class="hover:text-[#064e3b] transition-colors" href="#">Privacy</a>
+<a class="hover:text-[#064e3b] transition-colors" href="#">Contact</a>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold border border-emerald-100">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Evidence-Based</span>
+</div>
+</div>
+</footer>
+</body>
+</html>

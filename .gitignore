@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+**/node_modules/
+ai_service/__pycache__/
+ai_service/.venv/
+ai_service/venv/
+ai_service/*.pyc
+
+# Environment — NEVER commit secrets
+.env
+.env.*
+!.env.example
+*.env
+server/.env
+frontend/.env.local
+
+# Build & Cache
+dist/
+frontend/dist/
+frontend/.vite/
+*.traineddata
+
+# Archives & Temporary Backups
+*.zip
+PARAKH/
+
+# Uploads & Runtime Data
+uploads/
+server/uploads/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+

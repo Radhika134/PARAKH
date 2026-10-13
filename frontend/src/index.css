@@ -1,0 +1,122 @@
+/* Google Fonts — Plus Jakarta Sans (body) + Caveat (handwritten accent) */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────── */
+@layer base {
+  body {
+    @apply font-sans bg-canvas text-slate-800 antialiased;
+  }
+
+  /* Selection highlight matches brand */
+  ::selection {
+    @apply bg-brand-100 text-brand-900;
+  }
+
+  /* Clean focus ring for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2;
+  }
+}
+
+/* ─── Reusable Component Classes ────────────────────── */
+@layer components {
+
+  /* Card — white surface with subtle brand-tinted shadow */
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-brand-100 p-6;
+  }
+
+  /* Primary CTA button — filled emerald */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-full
+           bg-brand-900 text-white font-semibold text-sm
+           shadow-sm hover:bg-brand-800
+           hover:shadow-green transition-all duration-200
+           active:scale-[0.98];
+  }
+
+  /* Secondary button — white with border */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-full
+           border border-slate-300 bg-white text-slate-700 font-semibold text-sm
+           hover:bg-slate-50 hover:border-slate-400
+           transition-all duration-200 active:scale-[0.98];
+  }
+
+  /* Ghost button — outline brand */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           px-5 py-2.5 rounded-full
+           border border-brand-200 text-brand-900 font-semibold text-sm
+           hover:bg-brand-50 transition-all duration-200;
+  }
+
+  /* Medical / legal disclaimer banner */
+  .disclaimer-banner {
+    @apply w-full rounded-xl bg-amber-50 border border-amber-200
+           text-amber-800 text-xs font-medium px-4 py-3 text-center;
+  }
+
+  /* Status badges */
+  .badge-safe    { @apply px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold border border-brand-200/60; }
+  .badge-caution { @apply px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200/60; }
+  .badge-avoid   { @apply px-2.5 py-1 rounded-full bg-red-50 text-red-700 text-xs font-semibold border border-red-200/60; }
+
+  /* Source authority badges */
+  .source-badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full
+           bg-brand-50 text-brand-700 text-[10px] font-bold
+           border border-brand-200/60 uppercase tracking-wide;
+  }
+
+  /* Pill / tag chip (active) */
+  .chip-active {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full
+           text-xs font-semibold bg-brand-900 text-white shadow-sm;
+  }
+
+  /* Pill / tag chip (inactive) */
+  .chip-inactive {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full
+           text-xs font-medium bg-slate-100 text-slate-700
+           hover:bg-brand-50 hover:text-brand-800 transition-colors cursor-pointer;
+  }
+}
+
+/* ─── Utility Classes ────────────────────────────────── */
+@layer utilities {
+
+  /* Multi-point ambient glow used as page background */
+  .page-glow {
+    background-color: #fbfbf9;
+    background-image:
+      radial-gradient(at 15% 15%, rgba(209, 250, 229, 0.45) 0px, transparent 50%),
+      radial-gradient(at 85% 20%, rgba(167, 243, 208, 0.35) 0px, transparent 45%),
+      radial-gradient(at 50% 75%, rgba(236, 253, 245, 0.55) 0px, transparent 60%);
+    background-attachment: fixed;
+  }
+
+  /* Hero section stronger glow */
+  .hero-glow {
+    background: radial-gradient(ellipse 80% 55% at 50% 0%, rgba(6,78,59,0.09) 0%, transparent 70%);
+  }
+
+  /* Shimmer progress bar overlay */
+  .shimmer-bar {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.45) 50%, transparent 100%);
+    animation: shimmer 2s linear infinite;
+  }
+}

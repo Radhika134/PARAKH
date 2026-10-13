@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-[#fbfdfc]" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PARAKH - Personalize Your Insights</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans for clean medical/consumer intelligence UI -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            emerald: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+              950: '#022c22',
+            },
+          },
+          boxShadow: {
+            'parakh-soft': '0 10px 30px -5px rgba(6, 78, 59, 0.04)',
+            'parakh-card': '0 20px 40px -10px rgba(6, 78, 59, 0.05)',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-utilities">
+    /* Subtle custom transitions and styling */
+    .switch-toggle:checked ~ .switch-bg {
+      background-color: #064e3b;
+    }
+    .switch-toggle:checked ~ .switch-dot {
+      transform: translateX(100%);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col font-sans text-slate-800 bg-[#fbfdfc] antialiased">
+<!-- BEGIN: TopNavbar -->
+<header class="sticky top-0 z-50 bg-[#fbfdfc]/90 backdrop-blur-md border-b border-emerald-900/5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-emerald-900 flex items-center justify-center text-white font-bold text-xl shadow-sm">
+          P
+        </div>
+<div class="flex flex-col">
+<span class="font-extrabold text-slate-900 tracking-tight text-lg leading-none">PARAKH</span>
+<span class="text-[10px] font-semibold text-emerald-700 tracking-wider uppercase mt-1">PRODUCT INTELLIGENCE</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+<a class="hover:text-emerald-900 transition-colors" href="#">Home</a>
+<a class="hover:text-emerald-900 transition-colors flex items-center gap-1.5 text-emerald-900 font-semibold" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+          Analyze Product
+        </a>
+<a class="hover:text-emerald-900 transition-colors" href="#">Benefits</a>
+<a class="hover:text-emerald-900 transition-colors" href="#">Live Preview</a>
+</nav>
+<!-- Right Action -->
+<div class="flex items-center">
+<a class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-900 text-white text-sm font-semibold hover:bg-emerald-800 transition-all shadow-sm" href="#">
+          Analyze Product
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</div>
+</header>
+<!-- END: TopNavbar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 py-10 sm:py-12">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Breadcrumb Context Link -->
+<div class="mb-6">
+<a class="inline-flex items-center gap-2 text-xs font-medium text-slate-500 hover:text-emerald-800 transition-colors" href="#">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+          Back to Product Report
+        </a>
+</div>
+<!-- Page Header Banner -->
+<div class="text-center max-w-2xl mx-auto mb-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-semibold uppercase tracking-wide mb-4">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+          Personalize PARAKH
+        </div>
+<h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Make your insights more relevant
+        </h1>
+<p class="mt-3 text-slate-600 text-base sm:text-lg">
+          Tell PARAKH what matters to you. You can change these preferences anytime.
+        </p>
+</div>
+<!-- Preference Configuration Container -->
+<div class="bg-white rounded-3xl border border-emerald-900/10 shadow-parakh-card p-6 sm:p-10 space-y-10">
+<!-- SECTION 1: Category Selection -->
+<section class="space-y-6" data-purpose="preference-categories">
+<div>
+<h2 class="text-lg font-bold text-slate-900">What would you like PARAKH to consider?</h2>
+<p class="text-sm text-slate-500 mt-0.5">Select the categories that help PARAKH highlight what's relevant to you.</p>
+</div>
+<!-- Cards Stack -->
+<div class="space-y-4">
+<!-- Card 1: Sensitivities -->
+<label class="group relative flex items-start justify-between p-5 rounded-2xl border border-slate-200 bg-white hover:border-emerald-700/40 hover:bg-emerald-50/20 transition-all cursor-pointer shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-100 group-hover:bg-emerald-100/70 transition-colors">
+<!-- Shield icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 text-base group-hover:text-emerald-950 transition-colors">Ingredient sensitivities</h3>
+<p class="text-sm text-slate-500 mt-0.5">Highlight ingredients I may want to pay attention to.</p>
+<div class="mt-2.5 flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-600">e.g., fragrance, essential oils</span>
+</div>
+</div>
+</div>
+<!-- Checkbox Toggle -->
+<div class="pt-1 pl-4">
+<input checked="" class="w-5 h-5 rounded border-slate-300 text-emerald-900 focus:ring-emerald-900/20 focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+</div>
+</label>
+<!-- Card 2: Dietary & Formulation -->
+<label class="group relative flex items-start justify-between p-5 rounded-2xl border border-slate-200 bg-white hover:border-emerald-700/40 hover:bg-emerald-50/20 transition-all cursor-pointer shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-100 group-hover:bg-emerald-100/70 transition-colors">
+<!-- Leaf / Dietary icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 text-base group-hover:text-emerald-950 transition-colors">Dietary preferences</h3>
+<p class="text-sm text-slate-500 mt-0.5">Help identify ingredients relevant to my dietary choices.</p>
+<div class="mt-2.5 flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-600">e.g., vegan, cruelty-free, alcohol-free</span>
+</div>
+</div>
+</div>
+<!-- Checkbox Toggle -->
+<div class="pt-1 pl-4">
+<input class="w-5 h-5 rounded border-slate-300 text-emerald-900 focus:ring-emerald-900/20 focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+</div>
+</label>
+<!-- Card 3: Specific Watchlist -->
+<label class="group relative flex items-start justify-between p-5 rounded-2xl border border-slate-200 bg-white hover:border-emerald-700/40 hover:bg-emerald-50/20 transition-all cursor-pointer shadow-sm">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center shrink-0 border border-emerald-100 group-hover:bg-emerald-100/70 transition-colors">
+<!-- Eye/Focus icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewbox="0 0 24 24">
+<path d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 text-base group-hover:text-emerald-950 transition-colors">Specific ingredients</h3>
+<p class="text-sm text-slate-500 mt-0.5">Highlight ingredients I want to keep an eye on.</p>
+<div class="mt-2.5 flex items-center gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-600">custom watchlist</span>
+</div>
+</div>
+</div>
+<!-- Checkbox Toggle -->
+<div class="pt-1 pl-4">
+<input checked="" class="w-5 h-5 rounded border-slate-300 text-emerald-900 focus:ring-emerald-900/20 focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+</div>
+</label>
+</div>
+<!-- Quick Selector Chips -->
+<div class="pt-2">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2.5">Popular Quick Tags</span>
+<div class="flex flex-wrap gap-2">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-900 text-white shadow-xs" type="button">
+<span>Fragrance-Free</span>
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors" type="button">
+                + Sulfates
+              </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-900 text-white shadow-xs" type="button">
+<span>Essential Oils</span>
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors" type="button">
+                + Artificial Dyes
+              </button>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors" type="button">
+                + Gluten-Free
+              </button>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Active Preview / Selection Overview -->
+<section class="border-t border-slate-100 pt-8" data-purpose="preferences-summary">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-sm font-bold uppercase tracking-wider text-slate-600">Your Selected Preferences</h2>
+<span class="text-xs font-medium text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full">2 Active Filters</span>
+</div>
+<!-- Active Summary Container -->
+<div class="rounded-2xl border border-dashed border-emerald-200 bg-emerald-50/40 p-5">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-white border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-semibold text-slate-800">PARAKH will prioritize: Fragrance-Free, Essential Oils</p>
+<p class="text-xs text-slate-500 mt-0.5">Ingredients matching these will be prominently tagged in your next scan.</p>
+</div>
+</div>
+<button class="text-xs font-medium text-slate-500 hover:text-emerald-900 underline transition-colors" type="button">
+                Clear all
+              </button>
+</div>
+</div>
+</section>
+<!-- Actions Container -->
+<div class="border-t border-slate-100 pt-6 space-y-4" data-purpose="form-actions">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+<!-- Secondary Skip Option -->
+<a class="text-sm font-medium text-slate-500 hover:text-slate-800 transition-colors" href="#">
+              Skip and continue to report →
+            </a>
+<!-- Primary Action -->
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-emerald-900 hover:bg-emerald-950 text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2" type="button">
+<span>Save Preferences</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Privacy Reassurance Notice -->
+<div class="flex items-center justify-center gap-2 pt-2 text-center text-xs text-slate-400">
+<svg class="w-3.5 h-3.5 text-emerald-700/70" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Preferences are stored privately and used only to personalize your PARAKH experience. You can update or clear them at any time.</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="mt-auto border-t border-emerald-900/10 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Brand & Copyright -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-emerald-900 flex items-center justify-center text-white font-bold text-sm">
+          P
+        </div>
+<div class="text-xs text-slate-500">
+<span class="font-bold text-slate-800">PARAKH</span> © 2025 PARAKH. AI-Powered Product Intelligence.
+        </div>
+</div>
+<!-- Links -->
+<nav class="flex items-center gap-6 text-xs font-medium text-slate-600">
+<a class="hover:text-emerald-900 transition-colors" href="#">How It Works</a>
+<a class="hover:text-emerald-900 transition-colors" href="#">About</a>
+<a class="hover:text-emerald-900 transition-colors" href="#">Privacy</a>
+<a class="hover:text-emerald-900 transition-colors" href="#">Contact</a>
+</nav>
+<!-- Badge Indicator -->
+<div class="flex items-center gap-2 text-xs font-semibold text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+        Evidence-Based
+      </div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>

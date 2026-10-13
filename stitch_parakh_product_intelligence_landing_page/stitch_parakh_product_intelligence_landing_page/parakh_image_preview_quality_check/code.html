@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PARAKH - Review Product Image &amp; Quality Check</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f2fbf6',
+              100: '#e1f7ec',
+              200: '#c5eed9',
+              500: '#10b981',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+              950: '#022c22',
+            },
+            canvas: '#fbfbf9',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            'subtle': '0 2px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)',
+            'card': '0 20px 40px -15px rgba(6, 78, 59, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Typography & Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="typography">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+<style data-purpose="custom-layout">
+    /* Subtle background glow effect matching landing page */
+    .hero-glow {
+      background: radial-gradient(circle 800px at 50% -100px, rgba(16, 185, 129, 0.09), transparent 70%);
+    }
+  </style>
+</head>
+<body class="bg-[#fbfbf9] text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-emerald-100 selection:text-emerald-900">
+<!-- BEGIN: NavigationHeader -->
+<header class="w-full bg-[#fbfbf9]/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 group focus:outline-none" data-purpose="brand-identity" href="#">
+<div class="w-9 h-9 bg-brand-900 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-sm group-hover:bg-brand-800 transition-colors">
+          P
+        </div>
+<div class="flex flex-col">
+<span class="font-extrabold text-brand-900 tracking-tight text-lg leading-tight">PARAKH</span>
+<span class="text-[9px] font-bold text-slate-500 tracking-wider">PRODUCT INTELLIGENCE</span>
+</div>
+</a>
+<!-- Center Navigation Links -->
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+<a class="hover:text-brand-900 transition-colors" href="#">Home</a>
+<a class="text-brand-900 font-semibold flex items-center gap-1.5 transition-colors" href="#">
+<span>Analyze Product</span>
+<span class="w-1.5 h-1.5 rounded-full bg-brand-500 inline-block"></span>
+</a>
+<a class="hover:text-brand-900 transition-colors" href="#">Benefits</a>
+<a class="hover:text-brand-900 transition-colors" href="#">Live Preview</a>
+</nav>
+<!-- Right Action Button -->
+<div class="flex items-center gap-4">
+<button class="bg-brand-900 hover:bg-brand-800 text-white text-xs font-semibold px-5 py-2.5 rounded-full flex items-center gap-2 transition-all shadow-sm hover:shadow active:scale-95">
+<span>Analyze Product</span>
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<!-- END: NavigationHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow hero-glow py-10 sm:py-14 px-4 sm:px-6">
+<div class="max-w-5xl mx-auto flex flex-col items-center">
+<!-- Step Indicator & Header Title -->
+<div class="text-center max-w-2xl mb-10 flex flex-col items-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-brand-700 text-xs font-semibold mb-4">
+<span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+<span>STEP 2 OF 3: QUALITY VERIFICATION</span>
+</div>
+<h1 class="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-brand-950 tracking-tight mb-3">
+          Review Your Product Image
+        </h1>
+<p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+          Make sure the label is clear enough for PARAKH to read and analyze accurately.
+        </p>
+</div>
+<!-- Main Verification Card -->
+<section class="w-full bg-white rounded-3xl shadow-card border border-slate-100/80 p-6 sm:p-8 lg:p-10 mb-8" data-purpose="verification-container">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+<!-- LEFT COLUMN: Image Inspection Preview -->
+<div class="lg:col-span-5 flex flex-col" data-purpose="image-preview-panel">
+<div class="relative w-full h-[360px] sm:h-[400px] lg:h-full min-h-[380px] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200/70 group shadow-inner flex items-center justify-center">
+<!-- Realistic Skincare Product Label Photo Matching Verdant Botanicals Serum Reference -->
+<img alt="Uploaded cosmetic product label showing Verdant Botanicals Radiance Serum" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN-iT3Lqqp3t6o5VQIkKHQgPyU2gx0PjIqkUHP03Vxit9fHFFwkHNhU-kbW59uv6PVnvOK-FI0ATMwHZB3UaipuBQtBQTE2P9wa9yyWbyf5OhYgUxG5SGFgkd-iJcqmB5yRNpm6cjRmN9heyBQqycmgn3HlPIRcS-Nxi3gHjZXn0vmoinVIZ6TMPbJigJCkwXk290nPm3Lz-bAn3_hIPNHuwnr-Rnnuk_IMz8SziYcMY0YPQNifHe-qw"/>
+<!-- Overlay Scanner Reticle / Corner Brackets -->
+<div class="absolute inset-5 pointer-events-none">
+<!-- Top-Left Bracket -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-500 rounded-tl-md"></div>
+<!-- Bottom-Right Bracket -->
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-500 rounded-br-md"></div>
+<!-- Center Target Bounding Box -->
+<div class="absolute inset-x-8 top-16 bottom-16 border-2 border-dashed border-emerald-400/80 rounded-xl flex items-start justify-center pt-3 backdrop-brightness-[1.02]">
+<span class="bg-brand-900/90 backdrop-blur-md text-emerald-300 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+                    Label Boundary Detected
+                  </span>
+</div>
+</div>
+<!-- Floating Top Status Tag -->
+<div class="absolute top-4 left-4 z-10">
+<span class="bg-white/95 backdrop-blur-md shadow-sm border border-slate-100 text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-brand-500"></span>
+                  Image Uploaded
+                </span>
+</div>
+<!-- Floating Bottom View Full Size Tooltip -->
+<button class="absolute bottom-4 right-4 z-10 bg-white/90 backdrop-blur-sm p-2 rounded-full text-slate-600 hover:text-slate-900 shadow-sm border border-slate-200 transition-all hover:scale-105" title="Enlarge preview" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<!-- Image File Metadata Line -->
+<div class="mt-3.5 flex items-center justify-between text-xs text-slate-500 px-1">
+<span class="truncate font-medium text-slate-600">verdant_botanicals_label_01.jpg • 2.4 MB</span>
+<span class="inline-flex items-center text-brand-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 text-[11px]">
+                300+ DPI Ready
+              </span>
+</div>
+</div>
+<!-- RIGHT COLUMN: Quality Check Results & Actions -->
+<div class="lg:col-span-7 flex flex-col justify-between" data-purpose="quality-audit-panel">
+<div>
+<!-- Section Header -->
+<div class="border-b border-slate-100 pb-4 mb-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-xl font-bold text-brand-950 tracking-tight">Image Quality Check</h2>
+<p class="text-xs font-medium text-slate-500 mt-0.5">Automated pre-analysis validation</p>
+</div>
+<span class="px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wide uppercase bg-emerald-100/70 text-emerald-800 border border-emerald-200">
+                    Passed (3/3)
+                  </span>
+</div>
+</div>
+<!-- Quality Checks Stack -->
+<div class="space-y-3.5 mb-6">
+<!-- Quality Item 1: Label Visibility -->
+<div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.03)] hover:border-emerald-100 transition-colors">
+<div class="w-6 h-6 rounded-full bg-emerald-100 text-brand-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+<svg class="w-3.5 h-3.5 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h4 class="text-sm font-bold text-slate-900">Label is visible</h4>
+<span class="text-[11px] font-semibold text-emerald-700">Detected</span>
+</div>
+<p class="text-xs text-slate-500 mt-0.5">Full product label recognized within frame without edge clipping.</p>
+</div>
+</div>
+<!-- Quality Item 2: Text Readability -->
+<div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.03)] hover:border-emerald-100 transition-colors">
+<div class="w-6 h-6 rounded-full bg-emerald-100 text-brand-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+<svg class="w-3.5 h-3.5 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h4 class="text-sm font-bold text-slate-900">Text is readable</h4>
+<span class="text-[11px] font-semibold text-emerald-700">Sharp Focus</span>
+</div>
+<p class="text-xs text-slate-500 mt-0.5">Ingredients &amp; typography are sharp and free of motion blur.</p>
+</div>
+</div>
+<!-- Quality Item 3: Resolution & Lighting -->
+<div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white border border-slate-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.03)] hover:border-emerald-100 transition-colors">
+<div class="w-6 h-6 rounded-full bg-emerald-100 text-brand-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+<svg class="w-3.5 h-3.5 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<h4 class="text-sm font-bold text-slate-900">Image resolution is sufficient</h4>
+<span class="text-[11px] font-semibold text-emerald-700">Optimal</span>
+</div>
+<p class="text-xs text-slate-500 mt-0.5">Even lighting with balanced contrast; no heavy glare obscuring text.</p>
+</div>
+</div>
+</div>
+<!-- Green Positive Status Banner -->
+<div class="bg-brand-50 border border-brand-200/80 rounded-2xl p-4 flex items-center gap-3.5 mb-6">
+<div class="w-8 h-8 rounded-xl bg-brand-900 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 12.75l6 6 9-13.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-bold text-brand-950">Looks good! Ready for analysis.</p>
+<p class="text-xs text-brand-800/90 mt-0.5 leading-normal">
+                    For the most accurate results, make sure the ingredient list and warnings are clearly visible.
+                  </p>
+</div>
+</div>
+</div>
+<!-- Action Buttons Area -->
+<div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+<!-- Primary Emerald Action Button -->
+<button class="w-full sm:flex-1 bg-brand-900 hover:bg-brand-800 active:bg-brand-950 text-white text-sm font-semibold py-3.5 px-6 rounded-full flex items-center justify-center gap-2.5 transition-all shadow-md hover:shadow-lg focus:ring-4 focus:ring-emerald-200">
+<span>Continue to Analysis</span>
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Secondary Retake/Change Image Button -->
+<button class="w-full sm:w-auto px-6 py-3.5 rounded-full border border-slate-200 hover:border-slate-300 text-slate-700 bg-white hover:bg-slate-50 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-200">
+                Upload Another Image
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- BEGIN: ScanningBestPracticesTips -->
+<section class="w-full max-w-4xl text-center" data-purpose="scanning-tips">
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+          Need a better scan?
+        </h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+<div class="bg-white/70 backdrop-blur-sm border border-slate-200/70 px-4 py-3 rounded-2xl flex items-center justify-center gap-2 text-xs font-medium text-slate-700 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Avoid blurry photos</span>
+</div>
+<div class="bg-white/70 backdrop-blur-sm border border-slate-200/70 px-4 py-3 rounded-2xl flex items-center justify-center gap-2 text-xs font-medium text-slate-700 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Use good lighting</span>
+</div>
+<div class="bg-white/70 backdrop-blur-sm border border-slate-200/70 px-4 py-3 rounded-2xl flex items-center justify-center gap-2 text-xs font-medium text-slate-700 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Capture complete ingredients</span>
+</div>
+</div>
+</section>
+<!-- END: ScanningBestPracticesTips -->
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: SiteFooter -->
+<footer class="w-full border-t border-slate-200 bg-white py-6 px-6 sm:px-8 mt-12">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+<!-- Brand & Copyright -->
+<div class="flex items-center gap-2.5">
+<div class="w-5 h-5 bg-brand-900 rounded text-white flex items-center justify-center font-bold text-[10px]">
+          P
+        </div>
+<span class="font-bold text-brand-900 tracking-tight">PARAKH</span>
+<span>© 2025 PARAKH. AI-Powered Product Intelligence.</span>
+</div>
+<!-- Links -->
+<div class="flex items-center gap-6 font-medium">
+<a class="hover:text-brand-900 transition-colors" href="#">How It Works</a>
+<a class="hover:text-brand-900 transition-colors" href="#">About</a>
+<a class="hover:text-brand-900 transition-colors" href="#">Privacy</a>
+<a class="hover:text-brand-900 transition-colors" href="#">Contact</a>
+</div>
+<!-- Evidence Status -->
+<div class="flex items-center gap-1.5 text-brand-800 font-semibold">
+<span class="w-2 h-2 rounded-full bg-brand-500"></span>
+<span>Evidence-Based</span>
+</div>
+</div>
+</footer>
+<!-- END: SiteFooter -->
+</body></html>
